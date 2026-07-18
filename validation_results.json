@@ -112,7 +112,7 @@
   },
   "thresholds": {
     "method": "Thresholds derived from the patient-level mean of 10 repeated OOF predictions. Safety is the maximum observed cutoff yielding FN <= 2; Youden maximizes sensitivity + specificity - 1.",
-    "safety": 0.018455242140851154,
+    "safety": 0.01845524214085115,
     "youden": 0.10398051716909251,
     "safety_metrics": {
       "tn": 369,

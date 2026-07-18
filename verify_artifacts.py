@@ -48,6 +48,7 @@ except subprocess.CalledProcessError:
     nbformat.write(source_nb, EXECUTED)
 
 r = json.loads((ROOT / "validation_results.json").read_text())
+three = json.loads((ROOT / "three_outcomes_results.json").read_text())
 nb = nbformat.read(EXECUTED, as_version=4)
 output_text = "\n".join(
     str(o.get("text", "")) + str(o.get("data", {}).get("text/plain", ""))
@@ -73,6 +74,12 @@ checks = {
     "DOCX safety threshold": (f'{t["safety"]:.6f}'.replace(".", ",") in doc_text),
     "DOCX Youden threshold": (f'{t["youden"]:.6f}'.replace(".", ",") in doc_text),
     "DOCX GRACE AUC": (f'{g["auc"]:.3f}'.replace(".", ",") in doc_text),
+    "notebook three-outcome AUCs": all(f'{three[k]["mean"]:.3f}' in output_text for k in ("mortality", "shock", "composite")),
+    "notebook secondary counts": all(value in output_text for value in ("115", "171", "197")),
+    "DOCX three-outcome AUCs": all(f'{three[k]["mean"]:.3f}'.replace(".", ",") in doc_text for k in ("mortality", "shock", "composite")),
+    "DOCX secondary counts": all(value in doc_text for value in ("115", "171", "197")),
+    "DOCX secondary AUPRC": ("0,500" in doc_text and "0,635" in doc_text),
+    "DOCX secondary comparison table": all(value in doc_text for value in ("0,805-0,833", "0,736-0,757", "0,761-0,777")),
 }
 errors = [name for name, passed in checks.items() if not passed]
 if errors: fail(errors)
