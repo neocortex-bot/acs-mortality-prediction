@@ -45,7 +45,7 @@
     "auc_min": 0.8024068874008702,
     "auc_max": 0.8246551670935293,
     "ensemble_auc": 0.8189218378745332,
-    "brier_mean": 0.060532652155469255,
+    "brier_mean": 0.06053265215546925,
     "auprc_mean": 0.3005391737269814,
     "by_seed": [
       {
@@ -81,7 +81,7 @@
       {
         "seed": 222,
         "auc": 0.8220384484833525,
-        "brier": 0.06011468385313746,
+        "brier": 0.06011468385313747,
         "auprc": 0.3094152245985273
       },
       {
@@ -105,14 +105,14 @@
       {
         "seed": 666,
         "auc": 0.8074366649180731,
-        "brier": 0.06122827987276198,
+        "brier": 0.06122827987276196,
         "auprc": 0.2810805328721619
       }
     ]
   },
   "thresholds": {
     "method": "Thresholds derived from the patient-level mean of 10 repeated OOF predictions. Safety is the maximum observed cutoff yielding FN <= 2; Youden maximizes sensitivity + specificity - 1.",
-    "safety": 0.01845524214085115,
+    "safety": 0.018455242140851154,
     "youden": 0.10398051716909251,
     "safety_metrics": {
       "tn": 369,

@@ -145,10 +145,19 @@ def finalize_notebook():
     if start is not None:
         del nb.cells[start:start + 3]
 
-    insertion = next(i for i, c in enumerate(nb.cells) if c.cell_type == "markdown" and c.source.startswith("## 7. Reproducibility record"))
+    insertion = next(
+        i for i, c in enumerate(nb.cells)
+        if c.cell_type == "markdown" and (
+            c.source.startswith("## 7. Reproducibility record")
+            or c.source.startswith("## 10. Reproducibility record")
+        )
+    )
     nb.cells[insertion].source = nb.cells[insertion].source.replace("## 7.", "## 10.", 1)
     for cell in nb.cells[insertion + 1:]:
-        if cell.cell_type == "markdown" and cell.source.startswith("## 8. Final synchronized metrics"):
+        if cell.cell_type == "markdown" and (
+            cell.source.startswith("## 8. Final synchronized metrics")
+            or cell.source.startswith("## 11. Final synchronized metrics")
+        ):
             cell.source = cell.source.replace("## 8.", "## 11.", 1)
 
     code = """with open('three_outcomes_results.json') as f:
