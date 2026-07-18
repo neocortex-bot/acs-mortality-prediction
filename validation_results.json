@@ -1,0 +1,100 @@
+{
+  "dataset": "thesis_complete_db.parquet (pat_exclude=False, killip I-III)",
+  "n_patients": 1524,
+  "n_death": 115,
+  "prevalence": 0.0755,
+  "auc_mean": 0.8177,
+  "auc_std": 0.0032,
+  "auc_min": 0.8136,
+  "auc_max": 0.8236,
+  "features": [
+    "age_when_admission",
+    "ureum_igd",
+    "egfr_igd",
+    "hr",
+    "hb_igd",
+    "killip",
+    "sbp",
+    "rr",
+    "lvef",
+    "lvot_vti_igd",
+    "tapse_value",
+    "kalium_igd",
+    "aptt_value"
+  ],
+  "feature_importance": {
+    "ureum_igd": 0.1412,
+    "egfr_igd": 0.1404,
+    "age_when_admission": 0.1164,
+    "lvot_vti_igd": 0.0939,
+    "hb_igd": 0.0751,
+    "lvef": 0.0725,
+    "hr": 0.0706,
+    "rr": 0.0597,
+    "kalium_igd": 0.0595,
+    "aptt_value": 0.055,
+    "sbp": 0.0489,
+    "killip": 0.0421,
+    "tapse_value": 0.0246
+  },
+  "thresholds": {
+    "safety": 0.069,
+    "youden": 0.325
+  },
+  "confusion_safety": {
+    "tn": 272,
+    "fp": 1137,
+    "fn": 2,
+    "tp": 113,
+    "sensitivity": 0.9826,
+    "specificity": 0.193,
+    "ppv": 0.0904,
+    "npv": 0.9927
+  },
+  "confusion_youden": {
+    "tn": 1071,
+    "fp": 338,
+    "fn": 29,
+    "tp": 86,
+    "sensitivity": 0.7478,
+    "specificity": 0.7601,
+    "ppv": 0.2028,
+    "npv": 0.9736
+  },
+  "triage": {
+    "tiers": {
+      "Ward": {
+        "n": 274,
+        "death": 2,
+        "rate": 0.7
+      },
+      "HCU": {
+        "n": 826,
+        "death": 27,
+        "rate": 3.3
+      },
+      "ICU": {
+        "n": 424,
+        "death": 86,
+        "rate": 20.3
+      }
+    }
+  },
+  "brier": 0.0979,
+  "auprc": 0.316,
+  "ablation": {
+    "age_when_admission": 0.0101,
+    "ureum_igd": -0.0066,
+    "egfr_igd": 0.0053,
+    "hr": 0.0014,
+    "hb_igd": -0.0052,
+    "killip": -0.0012,
+    "sbp": 0.0,
+    "rr": -0.0025,
+    "lvef": -0.0045,
+    "lvot_vti_igd": -0.0024,
+    "tapse_value": -0.0021,
+    "kalium_igd": 0.0072,
+    "aptt_value": 0.006
+  }
+}
