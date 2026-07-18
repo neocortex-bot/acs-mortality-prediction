@@ -1,37 +1,11 @@
-# Python
 __pycache__/
-*.py[cod]
-*.so
+*.pyc
+.DS_Store
 *.egg-info/
 dist/
 build/
-
-# Jupyter
-.ipynb_checkpoints/
-*_executed.ipynb
-
-# Environment
-.env
+env/
 venv/
 .venv/
-env/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Data
-*.csv
-*.sql
-*.sqlite
-*.db
-*.pkl
-*.pickle
-
-# Output (keep figures but not intermediate)
-figures/*.png
-!figures/.gitkeep
-
-# Temporary
-tmp/
-*.log
+thesis_main.log
+.hermes/

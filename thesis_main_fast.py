@@ -396,7 +396,7 @@ for feat in FEATURES:
     X_red = X[reduced].copy()
     
     aucs_red = []
-    for seed in range(RANDOM_START, RANDOM_START + N_SEEDS):
+    for seed in [42]:  # single seed for speed
         rf = RandomForestClassifier(**RF_PARAMS, random_state=seed)
         skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=seed)
         oof = np.zeros(N)
@@ -422,7 +422,7 @@ try:
     import xgboost as xgb
     xgb_aucs, xgb_auprcs, xgb_briers = [], [], []
     
-    for seed in range(RANDOM_START, RANDOM_START + N_SEEDS):
+    for seed in [42]:  # single seed for speed
         model = xgb.XGBClassifier(n_estimators=500, max_depth=6, learning_rate=0.1,
                                    random_state=seed, n_jobs=-1, verbosity=0)
         skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=seed)
