@@ -1,12 +1,25 @@
 {
-  "dataset": "thesis_complete_db.parquet (pat_exclude=False, killip I-III)",
-  "n_patients": 1524,
-  "n_death": 115,
-  "prevalence": 0.0755,
-  "auc_mean": 0.8177,
-  "auc_std": 0.0032,
-  "auc_min": 0.8136,
-  "auc_max": 0.8236,
+  "schema_version": 2,
+  "dataset": {
+    "file": "thesis_complete_db.parquet",
+    "filter": "pat_exclude=False and Killip I-III",
+    "n": 1524,
+    "deaths": 115,
+    "prevalence": 0.07545931758530183
+  },
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    111,
+    222,
+    333,
+    444,
+    555,
+    666
+  ],
+  "folds": 5,
   "features": [
     "age_when_admission",
     "ureum_igd",
@@ -22,79 +35,324 @@
     "kalium_igd",
     "aptt_value"
   ],
-  "feature_importance": {
-    "ureum_igd": 0.1412,
-    "egfr_igd": 0.1404,
-    "age_when_admission": 0.1164,
-    "lvot_vti_igd": 0.0939,
-    "hb_igd": 0.0751,
-    "lvef": 0.0725,
-    "hr": 0.0706,
-    "rr": 0.0597,
-    "kalium_igd": 0.0595,
-    "aptt_value": 0.055,
-    "sbp": 0.0489,
-    "killip": 0.0421,
-    "tapse_value": 0.0246
+  "metrics": {
+    "auc_mean": 0.8157231462338383,
+    "auc_sd": 0.00754462528657153,
+    "auc_ci95": [
+      0.8110469390342173,
+      0.8203993534334594
+    ],
+    "auc_min": 0.8024068874008702,
+    "auc_max": 0.8246551670935293,
+    "ensemble_auc": 0.8189218378745332,
+    "brier_mean": 0.060532652155469255,
+    "auprc_mean": 0.3005391737269814,
+    "by_seed": [
+      {
+        "seed": 42,
+        "auc": 0.8172493597062364,
+        "brier": 0.060002658295233255,
+        "auprc": 0.30719396648654673
+      },
+      {
+        "seed": 123,
+        "auc": 0.8157126546733731,
+        "brier": 0.061132788596746854,
+        "auprc": 0.28365825128123623
+      },
+      {
+        "seed": 456,
+        "auc": 0.8246551670935293,
+        "brier": 0.060205575858793756,
+        "auprc": 0.29608388210044734
+      },
+      {
+        "seed": 789,
+        "auc": 0.8024068874008702,
+        "brier": 0.0605361728117583,
+        "auprc": 0.3014544297139505
+      },
+      {
+        "seed": 111,
+        "auc": 0.8085969080754157,
+        "brier": 0.06080242040739582,
+        "auprc": 0.3033341074516998
+      },
+      {
+        "seed": 222,
+        "auc": 0.8220384484833525,
+        "brier": 0.06011468385313746,
+        "auprc": 0.3094152245985273
+      },
+      {
+        "seed": 333,
+        "auc": 0.8144228098867529,
+        "brier": 0.060695503347617925,
+        "auprc": 0.3020831892268554
+      },
+      {
+        "seed": 444,
+        "auc": 0.8237417841824297,
+        "brier": 0.05999715933144218,
+        "auprc": 0.31889245935651955
+      },
+      {
+        "seed": 555,
+        "auc": 0.8209707779183508,
+        "brier": 0.06061127917980497,
+        "auprc": 0.30219569418186953
+      },
+      {
+        "seed": 666,
+        "auc": 0.8074366649180731,
+        "brier": 0.06122827987276198,
+        "auprc": 0.2810805328721619
+      }
+    ]
   },
   "thresholds": {
-    "safety": 0.069,
-    "youden": 0.325
-  },
-  "confusion_safety": {
-    "tn": 272,
-    "fp": 1137,
-    "fn": 2,
-    "tp": 113,
-    "sensitivity": 0.9826,
-    "specificity": 0.193,
-    "ppv": 0.0904,
-    "npv": 0.9927
-  },
-  "confusion_youden": {
-    "tn": 1071,
-    "fp": 338,
-    "fn": 29,
-    "tp": 86,
-    "sensitivity": 0.7478,
-    "specificity": 0.7601,
-    "ppv": 0.2028,
-    "npv": 0.9736
-  },
-  "triage": {
-    "tiers": {
+    "method": "Thresholds derived from the patient-level mean of 10 repeated OOF predictions. Safety is the maximum observed cutoff yielding FN <= 2; Youden maximizes sensitivity + specificity - 1.",
+    "safety": 0.01845524214085115,
+    "youden": 0.10398051716909251,
+    "safety_metrics": {
+      "tn": 369,
+      "fp": 1040,
+      "fn": 2,
+      "tp": 113,
+      "sensitivity": 0.9826086956521739,
+      "specificity": 0.2618878637331441,
+      "ppv": 0.09800520381613183,
+      "npv": 0.9946091644204852
+    },
+    "youden_metrics": {
+      "tn": 1155,
+      "fp": 254,
+      "fn": 33,
+      "tp": 82,
+      "sensitivity": 0.7130434782608696,
+      "specificity": 0.8197303051809794,
+      "ppv": 0.24404761904761904,
+      "npv": 0.9722222222222222
+    },
+    "triage": {
       "Ward": {
-        "n": 274,
+        "n": 371,
         "death": 2,
-        "rate": 0.7
+        "rate": 0.005390835579514825
       },
       "HCU": {
-        "n": 826,
-        "death": 27,
-        "rate": 3.3
+        "n": 817,
+        "death": 31,
+        "rate": 0.037943696450428395
       },
       "ICU": {
-        "n": 424,
-        "death": 86,
-        "rate": 20.3
+        "n": 336,
+        "death": 82,
+        "rate": 0.24404761904761904
       }
     }
   },
-  "brier": 0.0979,
-  "auprc": 0.316,
-  "ablation": {
-    "age_when_admission": 0.0101,
-    "ureum_igd": -0.0066,
-    "egfr_igd": 0.0053,
-    "hr": 0.0014,
-    "hb_igd": -0.0052,
-    "killip": -0.0012,
-    "sbp": 0.0,
-    "rr": -0.0025,
-    "lvef": -0.0045,
-    "lvot_vti_igd": -0.0024,
-    "tapse_value": -0.0021,
-    "kalium_igd": 0.0072,
-    "aptt_value": 0.006
+  "baseline": [
+    {
+      "variable": "Age (years)",
+      "alive": "56.9 \u00b1 11.0",
+      "death": "64.5 \u00b1 9.2",
+      "p": 4.7229829326828857e-14
+    },
+    {
+      "variable": "Male gender",
+      "alive": "1145 (81.3%)",
+      "death": "83 (72.2%)",
+      "p": 0.024669139322552512
+    },
+    {
+      "variable": "STEMI",
+      "alive": "975 (69.2%)",
+      "death": "72 (62.6%)",
+      "p": 0.1736225108782312
+    },
+    {
+      "variable": "Heart rate (bpm)",
+      "alive": "82.5 \u00b1 19.0",
+      "death": "91.0 \u00b1 20.2",
+      "p": 2.2865103556175545e-05
+    },
+    {
+      "variable": "SBP (mmHg)",
+      "alive": "132.1 \u00b1 24.2",
+      "death": "127.3 \u00b1 28.6",
+      "p": 0.08267210602721531
+    },
+    {
+      "variable": "RR (/min)",
+      "alive": "21.6 \u00b1 3.7",
+      "death": "23.7 \u00b1 4.0",
+      "p": 2.406165127555644e-07
+    },
+    {
+      "variable": "Killip III",
+      "alive": "108 (7.7%)",
+      "death": "37 (32.2%)",
+      "p": 2.969956065094956e-17
+    },
+    {
+      "variable": "Hemoglobin (g/dL)",
+      "alive": "13.8 \u00b1 2.0",
+      "death": "12.4 \u00b1 2.4",
+      "p": 2.0907850597784582e-08
+    },
+    {
+      "variable": "Ureum (mg/dL)",
+      "alive": "38.3 \u00b1 26.3",
+      "death": "71.8 \u00b1 53.3",
+      "p": 1.7423642621681323e-09
+    },
+    {
+      "variable": "eGFR (mL/min/1.73m2)",
+      "alive": "83.4 \u00b1 26.0",
+      "death": "57.8 \u00b1 29.0",
+      "p": 1.7710230285499247e-15
+    },
+    {
+      "variable": "Potassium (mEq/L)",
+      "alive": "4.1 \u00b1 0.6",
+      "death": "4.4 \u00b1 1.0",
+      "p": 0.0008739335422844095
+    },
+    {
+      "variable": "APTT (sec)",
+      "alive": "27.7 \u00b1 12.9",
+      "death": "31.6 \u00b1 20.0",
+      "p": 0.04379399491646427
+    },
+    {
+      "variable": "GDS (mg/dL)",
+      "alive": "179.9 \u00b1 90.3",
+      "death": "198.8 \u00b1 116.9",
+      "p": 0.09517121903499867
+    },
+    {
+      "variable": "LVEF (%)",
+      "alive": "42.8 \u00b1 7.7",
+      "death": "38.1 \u00b1 8.8",
+      "p": 1.7689481683458825e-07
+    },
+    {
+      "variable": "LVOT VTI (cm)",
+      "alive": "17.7 \u00b1 4.7",
+      "death": "15.5 \u00b1 5.6",
+      "p": 5.071255805010172e-05
+    },
+    {
+      "variable": "TAPSE (mm)",
+      "alive": "2.0 \u00b1 0.3",
+      "death": "1.9 \u00b1 0.3",
+      "p": 0.0003127321915128001
+    }
+  ],
+  "killip_multicategory_p": 7.090410783456265e-19,
+  "grace": {
+    "mapping": {
+      "arrest_at_admission": "rosc_in_igd",
+      "enzymes_elevated": "troponin_igd > 0.04",
+      "st_deviation": "ekg_ste"
+    },
+    "creatinine_imputed_n": 6,
+    "creatinine_imputation_median": 1.01,
+    "auc": 0.7766747924831056,
+    "rf_auc": 0.8189218378745332,
+    "auc_delta": 0.04224704539142765,
+    "auc_delta_ci95": [
+      0.003435063025579744,
+      0.08392175333123546
+    ],
+    "auc_p_bootstrap": 0.029,
+    "threshold_20pct": {
+      "grace_score_min": 163,
+      "grace": {
+        "tn": 1202,
+        "fp": 207,
+        "fn": 55,
+        "tp": 60,
+        "sensitivity": 0.5217391304347826,
+        "specificity": 0.8530872959545777,
+        "ppv": 0.2247191011235955,
+        "npv": 0.9562450278440732
+      },
+      "rf": {
+        "tn": 1308,
+        "fp": 101,
+        "fn": 68,
+        "tp": 47,
+        "sensitivity": 0.40869565217391307,
+        "specificity": 0.9283179559971612,
+        "ppv": 0.31756756756756754,
+        "npv": 0.9505813953488372
+      },
+      "mcnemar_rf_only_correct": 159,
+      "mcnemar_grace_only_correct": 66,
+      "mcnemar_p": 4.908215572059406e-10
+    }
+  },
+  "feature_importance": {
+    "egfr_igd": {
+      "mean": 0.15203487298619456,
+      "sd": 0.016141965125382716
+    },
+    "ureum_igd": {
+      "mean": 0.1312275692786725,
+      "sd": 0.014070875485939655
+    },
+    "lvot_vti_igd": {
+      "mean": 0.0984758437635892,
+      "sd": 0.009512386443021815
+    },
+    "hb_igd": {
+      "mean": 0.07979194510860452,
+      "sd": 0.01082096500551668
+    },
+    "kalium_igd": {
+      "mean": 0.07599907447339085,
+      "sd": 0.00851945868369196
+    },
+    "aptt_value": {
+      "mean": 0.07362189881085551,
+      "sd": 0.007979049265917955
+    },
+    "age_when_admission": {
+      "mean": 0.07047548510242527,
+      "sd": 0.010264529763331632
+    },
+    "lvef": {
+      "mean": 0.06812242832478271,
+      "sd": 0.007858589359674541
+    },
+    "sbp": {
+      "mean": 0.05909477401944363,
+      "sd": 0.006023435626695466
+    },
+    "hr": {
+      "mean": 0.058730863232261864,
+      "sd": 0.005456780094473312
+    },
+    "rr": {
+      "mean": 0.05229030003379541,
+      "sd": 0.00832594440442614
+    },
+    "killip": {
+      "mean": 0.045016992831402654,
+      "sd": 0.011069897418654497
+    },
+    "tapse_value": {
+      "mean": 0.03511795203458132,
+      "sd": 0.006187539052087608
+    }
+  },
+  "versions": {
+    "python": "3.11.11",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.17.1"
   }
 }

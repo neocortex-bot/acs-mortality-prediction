@@ -1,0 +1,21 @@
+{
+  "grace_cutoff": 158.0,
+  "grace_mortality_rate": 20.2,
+  "rf_cutoff": 0.083,
+  "rf_mortality_rate": 20.8,
+  "comparison": {
+    "auc_grace": 0.766,
+    "auc_rf": 0.8206,
+    "flagged_grace": 331,
+    "flagged_rf": 418,
+    "sens_grace": 58.3,
+    "sens_rf": 75.7,
+    "spec_grace": 81.3,
+    "spec_rf": 76.5,
+    "ppv_grace": 20.2,
+    "ppv_rf": 20.8,
+    "fn_grace": 48,
+    "fn_rf": 28
+  },
+  "summary": "GRACE >= 158 flags 331 patients (21.7%) with sensitivity 58.3% and specificity 81.3%. RF at Youden threshold flags 418 patients (27.4%) with sensitivity 75.7% and specificity 76.5%. RF detects 20 more deaths than GRACE while flagging +87 fewer patients. RF AUC (0.821) is significantly higher than GRACE AUC (0.766)."
+}
