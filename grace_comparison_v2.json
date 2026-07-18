@@ -1,0 +1,82 @@
+{
+  "matched_mortality_rate_comparison": {
+    "at_18pct_rate": {
+      "RF (thr=0.064)": {
+        "flagged": 511,
+        "pct": 33.5,
+        "death": 92,
+        "sens": 80.0,
+        "spec": 70.3,
+        "ppv": 18.0,
+        "fn": 23
+      },
+      "GRACE (\u2265155)": {
+        "flagged": 387,
+        "pct": 25.4,
+        "death": 70,
+        "sens": 60.9,
+        "spec": 77.5,
+        "ppv": 18.1,
+        "fn": 45
+      },
+      "delta_RF_GRACE": {
+        "flagged": 124,
+        "death": 22,
+        "sens": 19.1,
+        "fn": -22
+      }
+    },
+    "at_20pct_rate": {
+      "RF (thr=0.079)": {
+        "flagged": 436,
+        "pct": 28.6,
+        "death": 87,
+        "sens": 75.7,
+        "spec": 75.2,
+        "ppv": 20.0,
+        "fn": 28
+      },
+      "GRACE (\u2265158)": {
+        "flagged": 331,
+        "pct": 21.7,
+        "death": 67,
+        "sens": 58.3,
+        "spec": 81.3,
+        "ppv": 20.2,
+        "fn": 48
+      },
+      "delta_RF_GRACE": {
+        "flagged": 105,
+        "death": 20,
+        "sens": 17.4,
+        "fn": -20
+      }
+    },
+    "at_25pct_rate": {
+      "RF (thr=0.112)": {
+        "flagged": 308,
+        "pct": 20.2,
+        "death": 77,
+        "sens": 67.0,
+        "spec": 83.6,
+        "ppv": 25.0,
+        "fn": 38
+      },
+      "GRACE (\u2265172)": {
+        "flagged": 160,
+        "pct": 10.5,
+        "death": 40,
+        "sens": 34.8,
+        "spec": 91.5,
+        "ppv": 25.0,
+        "fn": 75
+      },
+      "delta_RF_GRACE": {
+        "flagged": 148,
+        "death": 37,
+        "sens": 32.2,
+        "fn": -37
+      }
+    }
+  }
+}
